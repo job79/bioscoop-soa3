@@ -37,14 +37,18 @@ public class Order
         return total;
     }
 
-    public string Export(TicketExportFormat format)
+    public void Export(TicketExportFormat format)
     {
+        string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../Order.txt"));
+
         switch (format)
         {
             case TicketExportFormat.Json:
-                return JsonSerializer.Serialize(this);
+                File.WriteAllText(path, JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true }));
+                break;
             case TicketExportFormat.PlainText:
-                return $"Order({OrderNr}): {Export(TicketExportFormat.Json)}";
+                File.WriteAllText(path, JsonSerializer.Serialize(this));
+                break;
             default:
                 throw new Exception($"Unknown TicketExportFormat: {format}");
         }

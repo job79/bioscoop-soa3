@@ -10,8 +10,5 @@ order.AddSeatReservation(new MovieTicket(movieScreening, true, false, 12, 12));
 order.AddSeatReservation(new MovieTicket(movieScreening, true, false, 12, 12));
 order.AddSeatReservation(new MovieTicket(movieScreening, true, false, 12, 12));
 
-
-
 Console.WriteLine(order.CalculatePrice());
-Console.WriteLine(order.Export(TicketExportFormat.Json));
-Console.WriteLine(order.Export(TicketExportFormat.PlainText));
+order.Export(TicketExportFormat.Json);
