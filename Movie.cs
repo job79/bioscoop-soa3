@@ -2,7 +2,7 @@ namespace bioscoop_soa3;
 
 public class Movie
 {
-    private string Title { get; }
+    public string Title { get; }
     public List<MovieScreening> Screenings { get; } = new();
 
     public Movie(string title)

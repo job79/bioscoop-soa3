@@ -2,20 +2,14 @@ namespace bioscoop_soa3;
 
 public class MovieScreening
 {
-    public DateTime DateAndTime { get; }
+    public DateTime DateAndTime { get; set; }
     public double PricePerSeat { get; }
-    public List<Movie> Movies { get; } = new();
+    public Movie Movie { get; set; }
 
     public MovieScreening(Movie movie, DateTime dateAndTime, double pricePerSeat)
     {
-        Movies.Add(movie);
         DateAndTime = dateAndTime;
         PricePerSeat = pricePerSeat;
-    }
-    
-
-    public override string ToString()
-    {
-        return "MovieScreening: " + DateAndTime + " Price: " + PricePerSeat;
+        Movie = movie;
     }
 }
