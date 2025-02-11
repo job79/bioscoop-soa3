@@ -21,4 +21,8 @@
         <Using Include="NUnit.Framework"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\bioscoop-soa3\bioscoop-soa3.csproj" />
+    </ItemGroup>
+
 </Project>
