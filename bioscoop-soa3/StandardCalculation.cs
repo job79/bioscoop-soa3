@@ -9,10 +9,13 @@ public class StandardCalculation : CalculateBehavior
         {
             if (isWeekDay && i % 2 == 1)
                 continue;
+            
             total += tickets[i].GetPrice();
+            if (tickets[i].IsPremium)
+                total += 3;
         }
         
-        if (isWeekDay && tickets.Count >= 6)
+        if (!isWeekDay && tickets.Count >= 6)
             total *= 0.9;
         
         return total;
