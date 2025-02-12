@@ -3,12 +3,11 @@
 Movie movie = new("Bliep bloep");
 MovieScreening movieScreening = new(movie, DateTime.MinValue, 10);
 
-Order order = new(321);
-order.AddSeatReservation(new MovieTicket(movieScreening, true, false, 12, 12));
-order.AddSeatReservation(new MovieTicket(movieScreening, true, false, 12, 12));
+Order order = new(321, new StudentCalculation());
+order.AddSeatReservation(new MovieTicket(movieScreening, 12, 12, true));
+order.AddSeatReservation(new MovieTicket(movieScreening, 12, 12, false));
+order.AddSeatReservation(new MovieTicket(movieScreening, 12, 12, true));
+order.AddSeatReservation(new MovieTicket(movieScreening, 12, 12, false));
 
-order.AddSeatReservation(new MovieTicket(movieScreening, true, false, 12, 12));
-order.AddSeatReservation(new MovieTicket(movieScreening, true, false, 12, 12));
-
-Console.WriteLine(order.CalculatePrice());
-order.Export(TicketExportFormat.Json);
+Console.WriteLine(order.CalculatePrice(true));
+order.Export(new JsonExport(), AppDomain.CurrentDomain.BaseDirectory + "../../../Export.txt");

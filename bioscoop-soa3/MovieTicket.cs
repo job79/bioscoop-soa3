@@ -2,26 +2,26 @@ namespace bioscoop_soa3;
 
 public class MovieTicket
 {
-    public int RowNr { get; set; }
-    public int SeatNr { get; set; }
-    public bool IsPremium { get; set; }
-    public bool IsStudentOrder { get; set; }
-    public MovieScreening MovieScreening   { get; set; }
+    public int RowNr { get; }
+    public int SeatNr { get; }
+    public MovieScreening MovieScreening { get; }
+    public bool IsPremium { get; }
 
-    public MovieTicket(MovieScreening movieScreening, bool isStudentOrder, bool isPremium, int rowNr, int seatNr)
+    public MovieTicket(
+        MovieScreening movieScreening,
+        int rowNr,
+        int seatNr,
+        bool isPremium
+    )
     {
-        RowNr = rowNr;
-        SeatNr = seatNr;
-        IsPremium = isPremium;
-        IsStudentOrder = isStudentOrder;
-        MovieScreening = movieScreening;
+        this.RowNr = rowNr;
+        this.SeatNr = seatNr;
+        this.MovieScreening = movieScreening;
+        this.IsPremium = isPremium;
     }
 
     public double GetPrice()
     {
-        double price = MovieScreening.PricePerSeat;
-        if (IsPremium)
-            return IsStudentOrder ? price + 2 : price + 3;
-        return price; 
+        return this.MovieScreening.PricePerSeat;
     }
 }
