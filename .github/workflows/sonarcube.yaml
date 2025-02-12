@@ -37,6 +37,9 @@ jobs:
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      - name: Install DotCover
+        shell: powershell
+        run: |
           dotnet tool install --global JetBrains.dotCover.GlobalTool
       - name: Build and analyze
         env:
