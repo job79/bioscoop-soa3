@@ -1,6 +1,6 @@
 namespace bioscoop_soa3;
 
-public class StandardCalculation : CalculateBehavior
+public class StandardCalculation : ICalculateBehavior
 {
     public double CalculatePrice(IList<MovieTicket> tickets, bool isWeekDay)
     {
