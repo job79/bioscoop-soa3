@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace bioscoop_soa3;
 
-public class JsonExport : ExportBehavior
+public class JsonExport : IExportBehavior
 {
     public void Export(Order order, string path)
     {

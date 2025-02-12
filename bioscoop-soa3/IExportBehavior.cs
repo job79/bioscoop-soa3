@@ -1,6 +1,6 @@
 namespace bioscoop_soa3;
 
-public interface ExportBehavior
+public interface IExportBehavior
 {
     void Export(Order order, string path);
 }

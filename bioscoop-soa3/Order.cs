@@ -4,9 +4,9 @@ public class Order
 {
     public int OrderNr { get; }
     public List<MovieTicket> Tickets { get; } = new();
-    private CalculateBehavior calculateBehavior;
+    private ICalculateBehavior calculateBehavior;
 
-    public Order(int orderNr, CalculateBehavior calculateBehavior)
+    public Order(int orderNr, ICalculateBehavior calculateBehavior)
     {
         OrderNr = orderNr;
         this.calculateBehavior = calculateBehavior;
@@ -22,7 +22,7 @@ public class Order
         return calculateBehavior.CalculatePrice(Tickets, isWeekDay);
     }
 
-    public void Export(ExportBehavior behavior, string path)
+    public void Export(IExportBehavior behavior, string path)
     {
         behavior.Export(this, path);
     }
